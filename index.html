@@ -1,391 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Trending Cryptos</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f9f9f9;
-    }
-    h2 {
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-size: 1.5rem;
-    }
-    /* Container for all trending cards */
-    .trending-container {
-      display: flex;
-      flex-wrap: wrap; /* Allows cards to wrap onto new lines */
-      gap: 20px;
-    }
-    /* Each individual card */
-    .card {
-      background-color: #fff;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      width: 160px;
-      text-align: center;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    /* Hover effect on each card */
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    /* Icon styling */
-    .card img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 10px;
-      object-fit: contain;
-    }
-    /* Coin name styling */
-    .coin-name {
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-    /* Price styling */
-    .price {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    /* Percentage change styling */
-    .change {
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    .positive {
-      color: #2ecc71; /* green */
-    }
-    .negative {
-      color: #e74c3c; /* red */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Inc. Stock Market</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            width: 100%;
+            text-align: center;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #444;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f7f7f7;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+        .up {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .down {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .stock-icon {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 12px;
+            transition: transform 0.3s;
+        }
+        .stock-name {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        .stock-name span {
+            margin-left: 10px;
+            font-weight: normal;
+            font-size: 18px;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            th:nth-child(3), td:nth-child(3) {
+                display: none; /* Hide Market Cap on Mobile */
+            }
+            .title {
+                font-size: 24px;
+            }
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+            table {
+                font-size: 16px;
+            }
+            .stock-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h2>Trending Cryptos</h2>
-  <div class="trending-container">
-    <!-- Card 1: GT Protocol -->
-    <div class="card">
-      <img src="https://placehold.co/40x40?text=GT" alt="GT Protocol" />
-      <div class="coin-name">GT Protocol</div>
-      <div class="price">$0.2343</div>
-      <div class="change positive">+5.80%</div>
+
+<div class="container">
+    <div class="title-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo" class="logo">
+        <h2 class="title">Apple Inc. Stock Market</h2>
     </div>
-    <!-- Card 2: Bitcoin -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=024" alt="Bitcoin" />
-      <div class="coin-name">Bitcoin</div>
-      <div class="price">$89,195.15</div>
-      <div class="change negative">-0.44%</div>
-    </div>
-    <!-- Card 3: XRP -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/xrp-xrp-logo.svg?v=024" alt="XRP" />
-      <div class="coin-name">XRP</div>
-      <div class="price">$2.5222</div>
-      <div class="change negative">-3.07%</div>
-    </div>
-    <!-- Card 4: Ethereum -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=024" alt="Ethereum" />
-      <div class="coin-name">Ethereum</div>
-      <div class="price">$2,188.08</div>
-      <div class="change negative">-2.58%</div>
-    </div>
-    <!-- Card 5: BNB -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="BNB" />
-      <div class="coin-name">BNB</div>
-      <div class="price">$300.10</div>
-      <div class="change positive">+1.25%</div>
-    </div>
-    <!-- Card 6: Cardano -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/cardano-ada-logo.svg?v=024" alt="Cardano" />
-      <div class="coin-name">Cardano</div>
-      <div class="price">$0.392</div>
-      <div class="change positive">+3.41%</div>
-    </div>
-    <!-- Card 7: Dogecoin -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=024" alt="Dogecoin" />
-      <div class="coin-name">Dogecoin</div>
-      <div class="price">$0.0812</div>
-      <div class="change negative">-1.15%</div>
-    </div>
-    <!-- Card 8: Polkadot -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/polkadot-dot-logo.svg?v=024" alt="Polkadot" />
-      <div class="coin-name">Polkadot</div>
-      <div class="price">$6.25</div>
-      <div class="change positive">+2.87%</div>
-    </div>
-    <!-- Card 9: Solana -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=024" alt="Solana" />
-      <div class="coin-name">Solana</div>
-      <div class="price">$25.30</div>
-      <div class="change positive">+4.10%</div>
-    </div>
-    <!-- Card 10: Avalanche -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/avalanche-avax-logo.svg?v=024" alt="Avalanche" />
-      <div class="coin-name">Avalanche</div>
-      <div class="price">$18.50</div>
-      <div class="change positive">+2.75%</div>
-    </div>
-    <!-- Card 11: Litecoin -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.svg?v=024" alt="Litecoin" />
-      <div class="coin-name">Litecoin</div>
-      <div class="price">$150.75</div>
-      <div class="change negative">-0.95%</div>
-    </div>
-    <!-- Card 12: Chainlink -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/chainlink-link-logo.svg?v=024" alt="Chainlink" />
-      <div class="coin-name">Chainlink</div>
-      <div class="price">$7.80</div>
-      <div class="change positive">+1.80%</div>
-    </div>
-    <!-- Card 13: Uniswap -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/uniswap-uni-logo.svg?v=024" alt="Uniswap" />
-      <div class="coin-name">Uniswap</div>
-      <div class="price">$5.40</div>
-      <div class="change positive">+3.20%</div>
-    </div>
-    <!-- Card 14: Stellar -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/stellar-xlm-logo.svg?v=024" alt="Stellar" />
-      <div class="coin-name">Stellar</div>
-      <div class="price">$0.250</div>
-      <div class="change negative">-2.05%</div>
-    </div>
-    <!-- Card 15: Tron -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/tron-trx-logo.svg?v=024" alt="Tron" />
-      <div class="coin-name">Tron</div>
-      <div class="price">$0.071</div>
-      <div class="change positive">+2.50%</div>
-    </div>
-    <!-- Card 16: Monero -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/monero-xmr-logo.svg?v=024" alt="Monero" />
-      <div class="coin-name">Monero</div>
-      <div class="price">$250.40</div>
-      <div class="change negative">-1.75%</div>
-    </div>
-    <!-- Card 17: EOS -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/eos-eos-logo.svg?v=024" alt="EOS" />
-      <div class="coin-name">EOS</div>
-      <div class="price">$4.50</div>
-      <div class="change positive">+0.85%</div>
-    </div>
-    <!-- Card 18: Algorand -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/algorand-algo-logo.svg?v=024" alt="Algorand" />
-      <div class="coin-name">Algorand</div>
-      <div class="price">$1.25</div>
-      <div class="change positive">+3.00%</div>
-    </div>
-    <!-- Card 19: Cosmos -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/cosmos-atom-logo.svg?v=024" alt="Cosmos" />
-      <div class="coin-name">Cosmos</div>
-      <div class="price">$10.75</div>
-      <div class="change positive">+2.40%</div>
-    </div>
-    <!-- Card 20: Tezos -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/tezos-xtz-logo.svg?v=024" alt="Tezos" />
-      <div class="coin-name">Tezos</div>
-      <div class="price">$3.60</div>
-      <div class="change negative">-0.65%</div>
-    </div>
-    <!-- Card 21: Bitcoin Cash -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/bitcoin-cash-bch-logo.svg?v=024" alt="Bitcoin Cash" />
-      <div class="coin-name">Bitcoin Cash</div>
-      <div class="price">$300.00</div>
-      <div class="change positive">+2.50%</div>
-    </div>
-    <!-- Card 22: VeChain -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/vechain-vet-logo.svg?v=024" alt="VeChain" />
-      <div class="coin-name">VeChain</div>
-      <div class="price">$0.0800</div>
-      <div class="change positive">+1.10%</div>
-    </div>
-    <!-- Card 23: IOTA -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/iota-miota-logo.svg?v=024" alt="IOTA" />
-      <div class="coin-name">IOTA</div>
-      <div class="price">$0.3500</div>
-      <div class="change negative">-0.80%</div>
-    </div>
-    <!-- Card 24: Zcash -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/zcash-zec-logo.svg?v=024" alt="Zcash" />
-      <div class="coin-name">Zcash</div>
-      <div class="price">$120.00</div>
-      <div class="change positive">+0.95%</div>
-    </div>
-    <!-- Card 25: Terra (LUNA) -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/terra-luna-luna-logo.svg?v=024" alt="Terra (LUNA)" />
-      <div class="coin-name">Terra (LUNA)</div>
-      <div class="price">$3.50</div>
-      <div class="change negative">-3.20%</div>
-    </div>
-    <!-- Card 26: Dash -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/dash-dash-logo.svg?v=024" alt="Dash" />
-      <div class="coin-name">Dash</div>
-      <div class="price">$120.45</div>
-      <div class="change positive">+1.80%</div>
-    </div>
-    <!-- Card 27: NEO -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/neo-neo-logo.svg?v=024" alt="NEO" />
-      <div class="coin-name">NEO</div>
-      <div class="price">$45.67</div>
-      <div class="change negative">-2.50%</div>
-    </div>
-    <!-- Card 28: Maker -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/maker-mkr-logo.svg?v=024" alt="Maker" />
-      <div class="coin-name">Maker</div>
-      <div class="price">$200.12</div>
-      <div class="change positive">+1.90%</div>
-    </div>
-    <!-- Card 29: Compound -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/compound-comp-logo.svg?v=024" alt="Compound" />
-      <div class="coin-name">Compound</div>
-      <div class="price">$300.22</div>
-      <div class="change positive">+2.20%</div>
-    </div>
-    <!-- Card 30: SushiSwap -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/sushiswap-sushi-logo.svg?v=024" alt="SushiSwap" />
-      <div class="coin-name">SushiSwap</div>
-      <div class="price">$12.34</div>
-      <div class="change negative">-0.55%</div>
-    </div>
-    <!-- Card 31: Fantom -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/fantom-ftm-logo.svg?v=024" alt="Fantom" />
-      <div class="coin-name">Fantom</div>
-      <div class="price">$2.10</div>
-      <div class="change positive">+4.50%</div>
-    </div>
-    <!-- Card 32: Hedera Hashgraph -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/hedera-hbar-logo.svg?v=024" alt="Hedera Hashgraph" />
-      <div class="coin-name">Hedera Hashgraph</div>
-      <div class="price">$0.35</div>
-      <div class="change positive">+2.00%</div>
-    </div>
-    <!-- Card 33: Shiba Inu -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.svg?v=024" alt="Shiba Inu" />
-      <div class="coin-name">Shiba Inu</div>
-      <div class="price">$0.0000123</div>
-      <div class="change negative">-1.75%</div>
-    </div>
-    <!-- Card 34: Internet Computer -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/internet-computer-icp-logo.svg?v=024" alt="Internet Computer" />
-      <div class="coin-name">Internet Computer</div>
-      <div class="price">$40.50</div>
-      <div class="change positive">+3.30%</div>
-    </div>
-    <!-- Card 35: Decentraland -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/decentraland-mana-logo.svg?v=024" alt="Decentraland" />
-      <div class="coin-name">Decentraland</div>
-      <div class="price">$1.80</div>
-      <div class="change positive">+1.20%</div>
-    </div>
-    <!-- Card 36: Aave -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/aave-aave-logo.svg?v=024" alt="Aave" />
-      <div class="coin-name">Aave</div>
-      <div class="price">$85.50</div>
-      <div class="change positive">+2.95%</div>
-    </div>
-    <!-- Card 37: Bitcoin SV -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/bitcoin-sv-bsv-logo.svg?v=024" alt="Bitcoin SV" />
-      <div class="coin-name">Bitcoin SV</div>
-      <div class="price">$150.30</div>
-      <div class="change negative">-1.50%</div>
-    </div>
-    <!-- Card 38: Synthetix -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/synthetix-snx-logo.svg?v=024" alt="Synthetix" />
-      <div class="coin-name">Synthetix</div>
-      <div class="price">$12.40</div>
-      <div class="change positive">+3.75%</div>
-    </div>
-    <!-- Card 39: Theta Network -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/theta-theta-logo.svg?v=024" alt="Theta Network" />
-      <div class="coin-name">Theta Network</div>
-      <div class="price">$7.25</div>
-      <div class="change positive">+2.10%</div>
-    </div>
-    <!-- Card 40: Enjin Coin -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/enjin-coin-enj-logo.svg?v=024" alt="Enjin Coin" />
-      <div class="coin-name">Enjin Coin</div>
-      <div class="price">$1.45</div>
-      <div class="change positive">+1.80%</div>
-    </div>
-    <!-- Card 41: Curve DAO Token -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/curve-dao-token-crv-logo.svg?v=024" alt="Curve DAO Token" />
-      <div class="coin-name">Curve DAO Token</div>
-      <div class="price">$3.75</div>
-      <div class="change positive">+2.50%</div>
-    </div>
-    <!-- Card 42: Yearn Finance -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/yearn-finance-yfi-logo.svg?v=024" alt="Yearn Finance" />
-      <div class="coin-name">Yearn Finance</div>
-      <div class="price">$25,000</div>
-      <div class="change negative">-1.00%</div>
-    </div>
-    <!-- Card 43: PancakeSwap -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/pancakeswap-cake-logo.svg?v=024" alt="PancakeSwap" />
-      <div class="coin-name">PancakeSwap</div>
-      <div class="price">$10.45</div>
-      <div class="change positive">+3.30%</div>
-    </div>
-    <!-- Card 44: OMG Network -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/omg-network-omg-logo.svg?v=024" alt="OMG Network" />
-      <div class="coin-name">OMG Network</div>
-      <div class="price">$2.85</div>
-      <div class="change negative">-0.75%</div>
-    </div>
-    <!-- Card 45: Celsius Network -->
-    <div class="card">
-      <img src="https://cryptologos.cc/logos/celsius-cel-logo.svg?v=024" alt="Celsius Network" />
-      <div class="coin-name">Celsius Network</div>
-      <div class="price">$3.60</div>
-      <div class="change negative">-1.20%</div>
-    </div>
-  </div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Stock Name</th>
+                <th>Market Cap</th>
+                <th>Price</th>
+                <th>1h %</th>
+                <th>24h %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="window.open('https://www.apple.com/investor/', '_blank')">
+                <td>1</td>
+                <td class="stock-name">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="stock-icon" loading="lazy"> 
+                    Apple Inc. <span>(AAPL)</span>
+                </td>
+                <td>$2.87T</td>
+                <td>$218.27</td>
+                <td class="up">+0.45%</td>
+                <td class="down">-0.12%</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
-
